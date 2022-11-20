@@ -1,0 +1,32 @@
+#include <iostream>
+#include <math.h>
+#include <fstream>
+#include <stdlib.h>
+#include <Windows.h>
+#include <string.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+setlocale(LC_CTYPE, "rus");
+SetConsoleCP(1251);
+SetConsoleOutputCP(1251);
+fstream solve("numbers.txt");
+int a;
+int b = 0;
+do
+{
+if (solve >> a)
+{
+b += a;
+}
+else
+{
+solve.clear();
+solve.ignore(1, ' ');
+}
+} while (!solve.eof());
+cout << b << endl;
+return 0;
+
+}
