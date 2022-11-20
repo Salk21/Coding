@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+int main()
+{
+setlocale(LC_CTYPE, "rus");
+char buff[50];
+ifstream text("numbers.txt");
+int a;
+do
+{
+if (text >> a)
+{
+cout << a << endl;
+}
+else
+{
+text.clear();
+text.ignore(1, ' ');
+}
+} while (!text.eof());
+text.close();
+
+}
