@@ -1,0 +1,39 @@
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+using namespace std;
+int triangle(int z, int x)
+{
+	int S;
+	S = (z*x)/2;
+	return S;
+}
+
+int rectangle(int e, int k)
+{
+	int S;
+	S = e * k;
+	return S;
+}
+
+int circle(int g)
+{
+	int S, Pi;
+	Pi = 3,14;
+	S = Pi * pow(g, 2);
+	return S;
+} 
+
+int main()
+{
+	setlocale(LC_CTYPE, "rus");
+	int a, b, c, d,t,r,o; //a основание, b - высота, с - сторона (используется для прямоугольника), d - радиус круга
+	cout << "Введите a,b,c,d" << endl;
+	cin >> a >> b >> c >> d;
+	t = triangle(a, b);
+	cout << "Площадь треугольника равна  " << t << endl;
+	r = rectangle(a, c);
+	cout << "Площадь прямоугольника равна  " << r << endl;
+	o = circle(d);
+	cout << "Площадь круга равна  " << o << endl;
+}
