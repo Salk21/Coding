@@ -1,0 +1,40 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_CTYPE, "rus");
+
+	int x, k;
+	int m1 = 37;
+	int b1 = 3;
+	int c1 = 64;
+	int m2 = 25173;
+	int b2 = 13849;
+	int c2 = 65537;
+	
+	cout << "Введите число  ";
+	cin >> x;
+	cout << "Введите вариант  ";
+	cin >> k;
+	if (k == 1)
+	{
+		int Si;
+		Si = x + 1;
+		Si = (m1 * x + b1);
+		cout << Si << endl;
+	}
+	else if (k == 2)
+	{
+		int Si;
+		Si = x + 1;
+		Si = (m2 * x + b2);
+		cout << Si << endl;
+	}
+	else
+	{
+		cout << "ОШИБКА" << endl;
+	}
+	return 0;
+}
