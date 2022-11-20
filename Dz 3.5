@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <math.h>
+using namespace std;
+int main()
+{
+setlocale(LC_CTYPE, "rus");
+char buff[50];
+cout << "Напишите 30 букв" << endl;
+for (int a = 0; a < 30; a++)
+{
+cin >> buff[a];
+}
+for (int a = 0; a < 30; a++)
+{
+for (int b = 0; b < 30; b++)
+{
+if ((int)buff[b] > (int)buff[b + 1])
+{
+char c = buff[b];
+buff[b] = buff[b + 1];
+buff[b + 1] = c;
+}
+}
+}
+cout << "Отсортированный вид: " << endl;
+for (int a = 0; a < 30; a++)
+{
+cout << buff[a] << " ";
+}
+}
