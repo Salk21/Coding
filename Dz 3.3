@@ -1,0 +1,20 @@
+#include <iostream> // ввод и ввывод
+#include <fstream> // работа с файлами
+#include <string> // работа со строками
+using namespace std; 
+int main()
+{
+	// string помогает выводить на экран символы 
+	string TrysikiLilly;
+	ifstream in("D:\JustText.txt");
+    if (in.is_open())
+    {
+        while (getline(in, TrysikiLilly)) // getline принимает, что написано в файле, и используем string
+        {
+            cout << TrysikiLilly << endl;
+        }
+    }
+    in.close();
+    return 0;
+
+}
