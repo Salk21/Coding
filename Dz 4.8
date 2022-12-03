@@ -1,14 +1,15 @@
 #include <iostream>
-#include <cmath> 
 #include <math.h>
 #include <stack>
 using namespace std;
-int main() 
+int main()
 {
-    const unsigned int DIM1 = 3;
-    const unsigned int DIM2 = 4;
+    setlocale(LC_CTYPE, "rus");
+    cout << "Таблица А" << endl;
+    const unsigned int x1 = 3;
+    const unsigned int x2 = 4;
 
-    int A[DIM1][DIM2] =
+    int A[x1][x2] =
     {
         { 5, 2, 0, 10},
         { 3, 5, 2, 5},
@@ -16,10 +17,11 @@ int main()
     };
 
 
-    const unsigned int QWE1 = 4;
-    const unsigned int QWE2 = 2;
+    const unsigned int y1 = 4;
+    const unsigned int y2 = 2;
 
-    double B[QWE1][QWE2] = {
+    double B[y1][y2] =
+    {
         { 1.2, 0.5},
         { 2.8, 0.4},
         { 5, 1},
@@ -28,8 +30,10 @@ int main()
 
 
 
-    for (int i = 0; i < DIM1; i++) {
-        for (int j = 0; j < DIM2; j++) {
+    for (int i = 0; i < x1; i++)
+    {
+        for (int j = 0; j < x2; j++)
+        {
             cout.width(6);
             cout << A[i][j];
         }
@@ -38,8 +42,11 @@ int main()
     cout << endl;
     cout << endl;
 
-    for (int i = 0; i < QWE1; i++) {
-        for (int j = 0; j < QWE2; j++) {
+    cout << "Таблица В" << endl;
+    for (int i = 0; i < y1; i++)
+    {
+        for (int j = 0; j < y2; j++)
+        {
             cout.width(6);
             cout << B[i][j];
         }
@@ -48,25 +55,69 @@ int main()
     cout << endl;
     cout << endl;
 
-
-    const unsigned int ZXC1 = 3;
-    const unsigned int ZXC2 = 2;
-    double C[ZXC1][ZXC2];
-    for (int i = 0; i < ZXC1; i++) {
-        for (int j = 0; j < ZXC2; j++) 
+    cout << "Таблица С" << endl;
+    const unsigned int z1 = 3;
+    const unsigned int z2 = 2;
+    double C[z1][z2];
+    for (int i = 0; i < z1; i++)
+    {
+        for (int j = 0; j < z2; j++)
         {
             C[i][j] = 0;
-            for (int k = 0; k <= ZXC2 + 1; k++) {
+            for (int k = 0; k <= z2 + 1; k++)
+            {
                 C[i][j] += A[i][k] * B[k][j];
             }
+
         }
     }
-    for (int i = 0; i < ZXC1; i++) {
-        for (int j = 0; j < ZXC2; j++) {
+
+    for (int i = 0; i < z1; i++)
+    {
+        for (int j = 0; j < z2; j++)
+        {
             cout.width(6);
             cout << C[i][j];
         }
         cout << endl;
     }
-
+    // какой продавец получил большую и меньшую прибыль с продаж
+    if (C[2][0] > C[3][0])
+    {
+        int seller1 = 2;
+        int seller2 = 3;
+        cout << seller1 << "-й больше заработал из всех " << endl;
+    }
+    if (C[3][0] < C[2][0])
+    {
+        int seller1 = 2;
+        int seller2 = 3;
+        cout << seller2 << "-й меньше заработал из всех" << endl;
+    }
+    // какой продавец получил больше или меньше комиссионных
+    if (C[0][1] > C[0][3])
+    {
+        int seller1 = 1;
+        int seller3 = 3;
+        cout << seller1 << "-й больше заработал комиссионных" << endl;
+    }
+    if (C[0][3] < C[0][1])
+    {
+        int seller1 = 1;
+        int seller3 = 3;
+        cout << seller3 << "-й меншье заработал комиссионных" << endl;
+    }
+    // общая сумма прибыли 
+    double sum1;
+    sum1 = C[0][0] + C[1][0] + C[2][0];
+    cout << "Общая сумма прибыли продавцов равна  " << sum1 << endl;
+    // общая сумма комиссионных
+    double sum2;
+    sum2 = C[0][1] + C[0][3] + C[0][5];
+    cout << "Общая сумма комиссионных продавцов равна  " << sum2 << endl;
+    // общая сумма денег прошедшие через продавцов
+    double all = 0;
+    all = sum1 + sum2;
+    cout << "Общая сумма денег, прошедших через руки продавцов  " << all << endl;
+    return 0;
 }
