@@ -1,40 +1,23 @@
-#include <iostream>
-#include <math.h>
+#include <iostream> 
+#include <algorithm> 
+#include <cstdlib> 
+#include <math.h> 
 using namespace std;
-
 int main()
 {
-	setlocale(LC_CTYPE, "rus");
-
-	int x, k;
-	int h = 0;
-	int m1 = 37;
-	int b1 = 3;
-	int c1 = 64;
-	int m2 = 25173;
-	int b2 = 13849;
-	int c2 = 65537;
-
-	cout << "Введите число  ";
-	cin >> x;
-	cout << "Введите вариант  ";
-	cin >> k;
-	if (k == 1)
-	{
-		
-		h = ( m1 * x + b1) % c1;
-		cout << h << endl;
-	}
-	else if (k == 2)
-	{
-		
-		
-		h = (m2 * x + b2) % c2;
-		cout << h << endl;
-	}
-	else
-	{
-		cout << "ОШИБКА" << endl;
-	}
-	return 0;
+    setlocale(LC_CTYPE, "rus");
+    int m = 37, m1 = 25173;
+    int b = 3, b1 = 13849;
+    int c = 64, c1 = 65537;
+    int s = 0, s1 = 0;
+    int o;
+    cout << "Введите количество" << endl;
+    cin >> o;
+    for (int i = 0; i <= o; i++)
+    {
+        s = (((m * s) + b) % c);
+        cout << "Вариант 1, цифра " << i << "= " << s << endl << endl;
+        s1 = (((m1 * s1) + b1) % c1);
+        cout << "Вариант 2, цифра " << i << "= " << s1 << endl << endl;
+    }
 }
